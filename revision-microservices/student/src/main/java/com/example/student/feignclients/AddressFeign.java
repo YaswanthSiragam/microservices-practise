@@ -7,10 +7,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(name = "address-service", path = "apis/address/")
+@FeignClient(value = "address-service", path = "apis/address/")
 public interface AddressFeign {
 
-    @GetMapping("find/{id}")
-    public ResponseEntity<AddressDto> findAddress(@PathVariable("id") int addressId);
+    @GetMapping("find/{addressId}")
+    public ResponseEntity<AddressDto> findAddress(@PathVariable int addressId);
 
 }

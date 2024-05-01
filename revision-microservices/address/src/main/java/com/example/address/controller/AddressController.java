@@ -19,11 +19,11 @@ public class AddressController {
     @PostMapping("add")
     public ResponseEntity<AddressDto> addAddress(@RequestBody AddressDto addressDto) {
         AddressDto savedAddressDto = addressService.createAddress(addressDto);
-        return new ResponseEntity<>(savedAddressDto, HttpStatus.OK);
+        return new ResponseEntity<>(savedAddressDto, HttpStatus.CREATED);
     }
 
-    @GetMapping("find/{id}")
-    public ResponseEntity<AddressDto> findAddress(@PathVariable("id") int addressId) {
+    @GetMapping("find/{addressId}")
+    public ResponseEntity<AddressDto> findAddress(@PathVariable int addressId) {
         log.info("inside address controller");
         AddressDto addressDto = addressService.getAddress(addressId);
         return new ResponseEntity<>(addressDto, HttpStatus.OK);
